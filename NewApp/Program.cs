@@ -3,4 +3,6 @@ Console.WriteLine("Hello, World!");
 Console.WriteLine ("Summer Time Sadness");
 Console.WriteLine("Nhap ten cua ban: ");
 string ten = Console.ReadLine();
-Console.WriteLine(ten);
+Console.WriteLine("Nhap tuoi cua ban: ");
+string tuoi = Console.ReadLine();
+Console.WriteLine("Hoc Sinh : " + ten  + tuoi );
