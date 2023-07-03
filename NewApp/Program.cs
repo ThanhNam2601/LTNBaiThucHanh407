@@ -5,4 +5,4 @@ Console.WriteLine("Nhap ten cua ban: ");
 string ten = Console.ReadLine();
 Console.WriteLine("Nhap tuoi cua ban: ");
 string tuoi = Console.ReadLine();
-Console.WriteLine("Hoc Sinh : " + ten  + tuoi );
+Console.WriteLine("Hoc Sinh : " + ten + "Tuoi la:"  + tuoi );
