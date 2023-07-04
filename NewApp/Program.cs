@@ -128,7 +128,7 @@ public class program
             System.Console.Write("diem mon e =  ");
             e = Convert.ToInt32(Console.ReadLine());
             int dtb = (a + b + c + d + e ) /5;
-            System.Console.WriteLine("diem trung binh la = ",dtb);
+            System.Console.WriteLine("diem trung binh la = {0}",dtb);
     }
 }
 
