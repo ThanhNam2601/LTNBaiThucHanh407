@@ -11665,11 +11665,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Net_Core\\FirstWebMVC\\FirstWebMVC.csproj",
+      "projectUniqueName": "c:\\Net_Core_API\\FirstWebMVC\\FirstWebMVC.csproj",
       "projectName": "FirstWebMVC",
-      "projectPath": "C:\\Net_Core\\FirstWebMVC\\FirstWebMVC.csproj",
+      "projectPath": "c:\\Net_Core_API\\FirstWebMVC\\FirstWebMVC.csproj",
       "packagesPath": "C:\\Users\\quang\\.nuget\\packages\\",
-      "outputPath": "C:\\Net_Core\\FirstWebMVC\\obj\\",
+      "outputPath": "c:\\Net_Core_API\\FirstWebMVC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\quang\\AppData\\Roaming\\NuGet\\NuGet.Config"

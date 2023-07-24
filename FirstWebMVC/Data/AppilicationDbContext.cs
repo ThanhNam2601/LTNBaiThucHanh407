@@ -15,4 +15,13 @@ namespace FirstWebMVC.Data
 
         public DbSet<Person> Person { get; set; } = default!;
     }
+    public class ApplicationDbContext : DbContext
+    {
+        public ApplicationDbContext (DbContextOptions<ApplicationDbContext> options)
+            : base(options)
+        {
+        }
+
+        public DbSet<FirstwebMVC.Models.Student> Student { get; set; } = default!;
+    }
 }
