@@ -23,5 +23,7 @@ namespace FirstWebMVC.Data
         }
 
         public DbSet<FirstwebMVC.Models.Student> Student { get; set; } = default!;
+
+        public DbSet<FirstwebMVC.Models.Customer> Customer { get; set; } = default!;
     }
 }
