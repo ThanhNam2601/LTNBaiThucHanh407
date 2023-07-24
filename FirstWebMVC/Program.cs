@@ -1,4 +1,9 @@
+using FirstWebMVC.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<AppilicationDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("AppilicationDbContext") ?? throw new InvalidOperationException("Connection string 'AppilicationDbContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
