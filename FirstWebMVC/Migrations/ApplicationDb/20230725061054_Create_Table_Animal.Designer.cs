@@ -2,6 +2,7 @@
 using FirstWebMVC.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FirstWebMVC.Migrations.ApplicationDb
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230725061054_Create_Table_Animal")]
+    partial class Create_Table_Animal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.9");
@@ -31,17 +34,9 @@ namespace FirstWebMVC.Migrations.ApplicationDb
                     b.Property<double>("AnimalWeight")
                         .HasColumnType("REAL");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.HasKey("AnimalID");
 
                     b.ToTable("Animal");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Animal");
-
-                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("FirstwebMVC.Models.Customer", b =>
@@ -74,40 +69,6 @@ namespace FirstWebMVC.Migrations.ApplicationDb
                     b.HasKey("StudentID");
 
                     b.ToTable("Student");
-                });
-
-            modelBuilder.Entity("FirtswebMVC.Models.Cat", b =>
-                {
-                    b.HasBaseType("FirstwebMVC.Models.Animal");
-
-                    b.Property<string>("CatCategory")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("CatID")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.ToTable("Animal");
-
-                    b.HasDiscriminator().HasValue("Cat");
-                });
-
-            modelBuilder.Entity("FirtswebMVC.Models.Dog", b =>
-                {
-                    b.HasBaseType("FirstwebMVC.Models.Animal");
-
-                    b.Property<string>("DogCategory")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("DogID")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.ToTable("Animal");
-
-                    b.HasDiscriminator().HasValue("Dog");
                 });
 #pragma warning restore 612, 618
         }

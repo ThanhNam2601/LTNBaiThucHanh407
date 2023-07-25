@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using FirstwebMVC.Models;
+using FirtswebMVC.Models;
 namespace FirstWebMVC.Data
 {
     public class AppilicationDbContext : DbContext
@@ -25,5 +26,11 @@ namespace FirstWebMVC.Data
         public DbSet<FirstwebMVC.Models.Student> Student { get; set; } = default!;
 
         public DbSet<FirstwebMVC.Models.Customer> Customer { get; set; } = default!;
+
+        public DbSet<FirstwebMVC.Models.Animal> Animal { get; set; } = default!;
+
+        public DbSet<FirtswebMVC.Models.Dog> Dog { get; set; } = default!;
+
+        public DbSet<FirtswebMVC.Models.Cat> Cat { get; set; } = default!;
     }
 }

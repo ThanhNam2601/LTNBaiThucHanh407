@@ -16,6 +16,46 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Net_Core_API\FirstWebMVC
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Net_Core_API/FirstWebMVC/Views/Animal/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5pbWFsXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Net_Core_API/FirstWebMVC/Views/Animal/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5pbWFsXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Net_Core_API/FirstWebMVC/Views/Animal/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5pbWFsXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Net_Core_API/FirstWebMVC/Views/Animal/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5pbWFsXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Net_Core_API/FirstWebMVC/Views/Animal/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5pbWFsXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Net_Core_API/FirstWebMVC/Views/Cat/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Net_Core_API/FirstWebMVC/Views/Cat/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0XERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Net_Core_API/FirstWebMVC/Views/Cat/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0XERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Net_Core_API/FirstWebMVC/Views/Cat/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Net_Core_API/FirstWebMVC/Views/Cat/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Net_Core_API/FirstWebMVC/Views/Customer/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -34,6 +74,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Net_Core_API/FirstWebMVC/Views/Customer/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Net_Core_API/FirstWebMVC/Views/Dog/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9nXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Net_Core_API/FirstWebMVC/Views/Dog/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9nXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Net_Core_API/FirstWebMVC/Views/Dog/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9nXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Net_Core_API/FirstWebMVC/Views/Dog/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9nXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Net_Core_API/FirstWebMVC/Views/Dog/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9nXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Net_Core_API/FirstWebMVC/Views/Home/Index.cshtml]

@@ -2,6 +2,7 @@
 using FirstWebMVC.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FirstWebMVC.Migrations.ApplicationDb
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230725062651_Create_Table_Dog")]
+    partial class Create_Table_Dog
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.9");
@@ -76,32 +79,11 @@ namespace FirstWebMVC.Migrations.ApplicationDb
                     b.ToTable("Student");
                 });
 
-            modelBuilder.Entity("FirtswebMVC.Models.Cat", b =>
-                {
-                    b.HasBaseType("FirstwebMVC.Models.Animal");
-
-                    b.Property<string>("CatCategory")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("CatID")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.ToTable("Animal");
-
-                    b.HasDiscriminator().HasValue("Cat");
-                });
-
             modelBuilder.Entity("FirtswebMVC.Models.Dog", b =>
                 {
                     b.HasBaseType("FirstwebMVC.Models.Animal");
 
-                    b.Property<string>("DogCategory")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("DogID")
+                    b.Property<string>("DogCode")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
