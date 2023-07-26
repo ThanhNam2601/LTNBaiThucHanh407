@@ -32,5 +32,6 @@ namespace FirstWebMVC.Data
         public DbSet<FirtswebMVC.Models.Dog> Dog { get; set; } = default!;
 
         public DbSet<FirtswebMVC.Models.Cat> Cat { get; set; } = default!;
+        public DbSet<FirstWebMVC.Models.Faculty> Faculty { get; set; } = default!;
     }
 }

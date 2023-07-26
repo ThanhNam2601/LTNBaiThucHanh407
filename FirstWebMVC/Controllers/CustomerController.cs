@@ -7,13 +7,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FirstWebMVC.Data;
 using FirstwebMVC.Models;
+using FirstWebMVC.Models.Process;
 
 namespace FirstWebMVC.Controllers
 {
     public class CustomerController : Controller
     {
         private readonly ApplicationDbContext _context;
-
+        private ExcelProcess _excelProcess = new ExcelProcess();
         public CustomerController(ApplicationDbContext context)
         {
             _context = context;
@@ -159,5 +160,47 @@ namespace FirstWebMVC.Controllers
         {
           return (_context.Customer?.Any(e => e.CustomerID == id)).GetValueOrDefault();
         }
+
+        public async Task<IActionResult>Upload()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult>Upload(IFormFile file)
+        {
+            if (file!=null)
+            {
+                string fileExtension = Path.GetExtension(file.FileName);
+                if (fileExtension != ".xls" && fileExtension != ".xlsx")
+                {
+                    ModelState.AddModelError("","please choose excel file to upload");
+                }
+                else
+                {
+                    var filename = DateTime.Now.ToShortTimeString() + fileExtension;
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory() + "/Uploads_Excels",filename);
+                    var fileLocation = new FileInfo(filePath).ToString();
+                    using ( var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                        var dt =_excelProcess.ExcelToDataTable(fileLocation);
+                        for (int i=1; i < dt.Rows.Count; i++)
+                        {
+                            var cus = new Customer();
+                            cus.CustomerID = dt.Rows[i][0].ToString();
+                            cus.CustomerName = dt.Rows[i][1].ToString();
+                            cus.CustomerAddress = dt.Rows[i][2].ToString();
+                            _context.Customer.Add(cus);
+                        }
+                        await _context.SaveChangesAsync();
+                        return RedirectToAction(nameof(Index));
+                    }
+                }
+            }
+            return View();
+        }
     }
+    
 }
+

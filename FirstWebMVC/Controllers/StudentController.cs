@@ -5,13 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using FirstwebMVC.Models;
 using FirstWebMVC.Data;
+using FirstwebMVC.Models;
+using FirstWebMVC.Models.Process;
 
 namespace FirstWebMVC.Controllers
 {
     public class StudentController : Controller
     {
+        StringProcess strPro = new StringProcess();
         private readonly ApplicationDbContext _context;
 
         public StudentController(ApplicationDbContext context)
@@ -22,9 +24,9 @@ namespace FirstWebMVC.Controllers
         // GET: Student
         public async Task<IActionResult> Index()
         {
-              return _context.Student != null ? 
-                          View(await _context.Student.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Student'  is null.");
+           
+            var applicationDbContext = _context.Student.Include(s => s.Faculty);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Student/Details/5
@@ -36,6 +38,7 @@ namespace FirstWebMVC.Controllers
             }
 
             var student = await _context.Student
+                .Include(s => s.Faculty)
                 .FirstOrDefaultAsync(m => m.StudentID == id);
             if (student == null)
             {
@@ -48,6 +51,10 @@ namespace FirstWebMVC.Controllers
         // GET: Student/Create
         public IActionResult Create()
         {
+            var stdID = _context.Student.OrderByDescending(m => m.StudentID).FirstOrDefault().StudentID;
+            var newID = strPro.AutoGenerateCode(stdID);
+            ViewBag.maSV = stdID;
+            ViewData["FacultyID"] = new SelectList(_context.Faculty, "FacultyID", "FacultyName");
             return View();
         }
 
@@ -56,7 +63,7 @@ namespace FirstWebMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("StudentID,StudentName")] Student student)
+        public async Task<IActionResult> Create([Bind("StudentID,StudentName,FacultyID")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -64,6 +71,7 @@ namespace FirstWebMVC.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["FacultyID"] = new SelectList(_context.Faculty, "FacultyID", "FacultyName", student.FacultyID);
             return View(student);
         }
 
@@ -80,6 +88,7 @@ namespace FirstWebMVC.Controllers
             {
                 return NotFound();
             }
+            ViewData["FacultyID"] = new SelectList(_context.Faculty, "FacultyID", "FacultyID", student.FacultyID);
             return View(student);
         }
 
@@ -88,7 +97,7 @@ namespace FirstWebMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("StudentID,StudentName")] Student student)
+        public async Task<IActionResult> Edit(string id, [Bind("StudentID,StudentName,FacultyID")] Student student)
         {
             if (id != student.StudentID)
             {
@@ -115,6 +124,7 @@ namespace FirstWebMVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["FacultyID"] = new SelectList(_context.Faculty, "FacultyID", "FacultyID", student.FacultyID);
             return View(student);
         }
 
@@ -127,6 +137,7 @@ namespace FirstWebMVC.Controllers
             }
 
             var student = await _context.Student
+                .Include(s => s.Faculty)
                 .FirstOrDefaultAsync(m => m.StudentID == id);
             if (student == null)
             {
